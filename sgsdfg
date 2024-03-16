@@ -562,7 +562,6 @@ function createStructure()
 						slider:TweenPosition(UDim2.new(0.08, 20,0.092, 0), "Out", "Sine", 0.3)
 						game:GetService("TweenService"):Create(toggle_button_frame, TweenInfo.new(0.4), {['BackgroundTransparency'] = 0}):Play()
 						game:GetService("TweenService"):Create(toggle_button_frame, TweenInfo.new(0.4), {['BackgroundColor3'] = Color3.fromRGB(116, 255, 52)}):Play()
-						print(CallBack)
 						pcall(CallBack)
 					else
 						Open = false
