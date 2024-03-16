@@ -89,9 +89,6 @@ function createStructure()
 	local uicorner_12 = Instance.new("UICorner")
 	uicorner_12.Parent = moon
 
-	local local_script_6 = Instance.new("LocalScript")
-	local_script_6.Parent = moon
-
 	local uipadding_7 = Instance.new("UIPadding")
 	uipadding_7.PaddingTop = UDim.new(0, 15)
 	uipadding_7.Parent = moon
@@ -295,6 +292,8 @@ function createStructure()
 	end
 
 	function createScript(scriptName, scriptTab, callBack)
+		
+		callBack = callBack or function() end
 
 		if tabs:FindFirstChild(scriptTab) then
 
@@ -475,6 +474,9 @@ function createStructure()
 	end
 
 	function createSettingToggle(settingName, settingPlace, settingSpecification, callBack)
+		
+		callBack = callBack or function() end
+		
 		if tabs:FindFirstChild(settingPlace) then
 			local toggle_button_frame = Instance.new("Frame")
 			toggle_button_frame.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -610,9 +612,6 @@ function createStructure()
 			text_info_2.ZIndex = 6
 			text_info_2.Name = "TextInfo"
 			text_info_2.Parent = dropdown_button_frame
-
-			local local_script_4 = Instance.new("LocalScript")
-			local_script_4.Parent = dropdown_button_frame
 
 			local inside_dropdown = Instance.new("Frame")
 			inside_dropdown.BackgroundColor3 = Color3.new(1, 1, 1)
