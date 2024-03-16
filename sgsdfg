@@ -211,19 +211,19 @@ function createStructure()
 		local tab = Instance.new("Frame")
 		tab.AutomaticSize = Enum.AutomaticSize.Y
 		tab.BackgroundColor3 = Color3.new(0.0784314, 0.0784314, 0.0784314)
-		tab.BackgroundTransparency = 0.2
+		tab.BackgroundTransparency = 0.30000001192092896
 		tab.BorderColor3 = Color3.new(0, 0, 0)
 		tab.BorderSizePixel = 0
 		tab.ClipsDescendants = true
-		tab.Position = UDim2.new(-0.00202156324, 0, -0.00925925933, 0)
-		tab.Size = UDim2.new(0, 191, 0, 66)
+		tab.Position = UDim2.new(0.0100286528, 0, -0.0140845068, 0)
+		tab.Size = UDim2.new(0, 222, 0, 87)
 		tab.Visible = true
 		tab.ZIndex = 5
 		tab.Name = tabName
 		tab.Parent = tabs
 
 		local uicorner_3 = Instance.new("UICorner")
-		uicorner_3.CornerRadius = UDim.new(0, 16)
+		uicorner_3.CornerRadius = UDim.new(0, 18)
 		uicorner_3.Parent = tab
 
 		local scripts_group = Instance.new("CanvasGroup")
@@ -249,7 +249,7 @@ function createStructure()
 		uilist_layout_3.Parent = scripts_group
 
 		local uicorner_4 = Instance.new("UICorner")
-		uicorner_4.CornerRadius = UDim.new(0, 16)
+		uicorner_4.CornerRadius = UDim.new(0, 18)
 		uicorner_4.Parent = scripts_group
 
 		local title = Instance.new("CanvasGroup")
@@ -257,37 +257,59 @@ function createStructure()
 		title.BackgroundTransparency = 1
 		title.BorderColor3 = Color3.new(0, 0, 0)
 		title.BorderSizePixel = 0
-		title.Size = UDim2.new(0, 190, 0, 80)
+		title.Size = UDim2.new(0, 222, 0, 38)
 		title.Visible = true
 		title.ZIndex = 8
 		title.Name = "Title"
 		title.Parent = tab
 
 		local toptitle = Instance.new("TextLabel")
-		toptitle.Font = Enum.Font.Roboto
+		toptitle.Font = Enum.Font.Unknown
 		toptitle.Text = tabName
 		toptitle.TextColor3 = Color3.new(0.815686, 0.815686, 0.815686)
-		toptitle.TextSize = 24
-		toptitle.FontFace.Weight = Enum.FontWeight.Bold
+		toptitle.TextScaled = true
+		toptitle.TextSize = 23
 		toptitle.TextWrapped = true
+		toptitle.TextXAlignment = Enum.TextXAlignment.Left
 		toptitle.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
-		toptitle.BackgroundTransparency = 0.699999988079071
+		toptitle.BackgroundTransparency = 1
 		toptitle.BorderColor3 = Color3.new(0, 0, 0)
 		toptitle.BorderSizePixel = 0
-		toptitle.Position = UDim2.new(-0.0261792485, 0, 0, 0)
-		toptitle.Size = UDim2.new(0, 200, 0, 43)
+		toptitle.Position = UDim2.new(0.0782162771, 0, 0.190643311, 0)
+		toptitle.Size = UDim2.new(0, 187, 0, 20)
 		toptitle.Visible = true
-		toptitle.ZIndex = 5
+		toptitle.ZIndex = 6
 		toptitle.Name = "TopTitle"
 		toptitle.Parent = title
 
 		local uicorner_10 = Instance.new("UICorner")
-		uicorner_10.CornerRadius = UDim.new(0, 16)
+		uicorner_10.CornerRadius = UDim.new(0, 18)
 		uicorner_10.Parent = toptitle
 
+		local baclground = Instance.new("TextLabel")
+		baclground.Font = Enum.Font.Unknown
+		baclground.Text = ""
+		baclground.TextColor3 = Color3.new(0.815686, 0.815686, 0.815686)
+		baclground.TextSize = 23
+		baclground.TextWrapped = true
+		baclground.TextXAlignment = Enum.TextXAlignment.Left
+		baclground.BackgroundColor3 = Color3.new(0.156863, 0.156863, 0.156863)
+		baclground.BackgroundTransparency = 0.4000000059604645
+		baclground.BorderColor3 = Color3.new(0, 0, 0)
+		baclground.BorderSizePixel = 0
+		baclground.Size = UDim2.new(0, 222, 0, 47)
+		baclground.Visible = true
+		baclground.ZIndex = 5
+		baclground.Name = "Baclground"
+		baclground.Parent = title
+
 		local uicorner_11 = Instance.new("UICorner")
-		uicorner_11.CornerRadius = UDim.new(0, 16)
-		uicorner_11.Parent = title
+		uicorner_11.CornerRadius = UDim.new(0, 18)
+		uicorner_11.Parent = baclground
+
+		local uistroke_5 = Instance.new("UIStroke")
+		uistroke_5.Color = Color3.new(0.635294, 0.635294, 0.635294)
+		uistroke_5.Parent = tab
 
 	end
 
@@ -296,7 +318,7 @@ function createStructure()
 		callBack = callBack or function() end
 
 		if tabs:FindFirstChild(scriptTab) then
-
+			
 			local button_place_holder = Instance.new("Frame")
 			button_place_holder.Active = true
 			button_place_holder.BackgroundColor3 = Color3.new(0.458824, 0.498039, 0.909804)
@@ -304,40 +326,15 @@ function createStructure()
 			button_place_holder.BorderColor3 = Color3.new(0, 0, 0)
 			button_place_holder.BorderSizePixel = 0
 			button_place_holder.ClipsDescendants = true
-			button_place_holder.Size = UDim2.new(0, 201, 0, 42)
+			button_place_holder.Size = UDim2.new(0, 238, 0, 42)
 			button_place_holder.Visible = true
 			button_place_holder.ZIndex = 2
 			button_place_holder.Name = scriptName
 			button_place_holder.Parent = tabs:FindFirstChild(scriptTab).ScriptsGroup
-
-			local settings_holder = Instance.new("ImageButton")
-			settings_holder.Image = "rbxassetid://14596383084"
-			settings_holder.BackgroundColor3 = Color3.new(1, 1, 1)
-			settings_holder.BackgroundTransparency = 1
-			settings_holder.BorderColor3 = Color3.new(0, 0, 0)
-			settings_holder.BorderSizePixel = 0
-			settings_holder.Position = UDim2.new(0, 170, 0, 11)
-			settings_holder.Size = UDim2.new(0, 11, 0, 16)
-			settings_holder.Visible = true
-			settings_holder.ZIndex = 6
-			settings_holder.Name = "SettingsHolder"
-			settings_holder.Parent = button_place_holder
-
-			local settings_frame = Instance.new("Frame")
-			settings_frame.Active = true
-			settings_frame.BackgroundColor3 = Color3.new(0.0784314, 0.0784314, 0.0784314)
-			settings_frame.BackgroundTransparency = 0.5
-			settings_frame.BorderColor3 = Color3.new(0, 0, 0)
-			settings_frame.BorderSizePixel = 0
-			settings_frame.Position = UDim2.new(0, 0, 0, 36)
-			settings_frame.Size = UDim2.new(0, 191, 0, 0)
-			settings_frame.Visible = true
-			settings_frame.Name = "SettingsFrame"
-			settings_frame.Parent = button_place_holder
-
+			
 			local button_actual = Instance.new("TextButton")
-			button_actual.Font = Enum.Font.Nunito
-			button_actual.Text = scriptName
+			button_actual.Font = Enum.Font.Unknown
+			button_actual.Text = "Target Strafe"
 			button_actual.TextColor3 = Color3.new(0.443137, 0.439216, 0.45098)
 			button_actual.TextScaled = true
 			button_actual.TextSize = 25
@@ -348,12 +345,39 @@ function createStructure()
 			button_actual.BorderColor3 = Color3.new(0, 0, 0)
 			button_actual.BorderSizePixel = 0
 			button_actual.Position = UDim2.new(0, 14, 0, 8)
-			button_actual.Size = UDim2.new(0, 185, 0, 22)
+			button_actual.Size = UDim2.new(0, 185, 0, 19)
 			button_actual.Visible = true
 			button_actual.ZIndex = 6
 			button_actual.Name = "ButtonActual"
 			button_actual.Parent = button_place_holder
+			
+			local settings_holder = Instance.new("ImageButton")
+			settings_holder.Image = "rbxassetid://14596383084"
+			settings_holder.BackgroundColor3 = Color3.new(1, 1, 1)
+			settings_holder.BackgroundTransparency = 1
+			settings_holder.BorderColor3 = Color3.new(0, 0, 0)
+			settings_holder.BorderSizePixel = 0
+			settings_holder.Position = UDim2.new(0, 199, 0, 8)
+			settings_holder.Size = UDim2.new(0, 11, 0, 16)
+			settings_holder.Visible = true
+			settings_holder.ZIndex = 7
+			settings_holder.Name = "SettingsHolder"
+			settings_holder.Parent = button_place_holder
 
+			local settings_frame = Instance.new("Frame")
+			settings_frame.Active = true
+			settings_frame.AnchorPoint = Vector2.new(0.5, 0)
+			settings_frame.BackgroundColor3 = Color3.new(0.0784314, 0.0784314, 0.0784314)
+			settings_frame.BackgroundTransparency = 0.5
+			settings_frame.BorderColor3 = Color3.new(0, 0, 0)
+			settings_frame.BorderSizePixel = 0
+			settings_frame.Position = UDim2.new(0, 110, 0, 33)
+			settings_frame.Size = UDim2.new(0, 222, 0, 0)
+			settings_frame.Visible = true
+			settings_frame.ZIndex = 7
+			settings_frame.Name = "SettingsFrame"
+			settings_frame.Parent = button_place_holder
+			
 			local uilist_layout_4 = Instance.new("UIListLayout")
 			uilist_layout_4.Padding = UDim.new(0, 12)
 			uilist_layout_4.SortOrder = Enum.SortOrder.LayoutOrder
@@ -364,6 +388,9 @@ function createStructure()
 			uipadding_5.PaddingLeft = UDim.new(0, 10)
 			uipadding_5.PaddingTop = UDim.new(0, 10)
 			uipadding_5.Parent = settings_frame
+			
+			local uiscale_2 = Instance.new("UIScale")
+			uiscale_2.Parent = settings_frame
 
 			local Opened = false
 			local OpenedDeb = false
@@ -452,13 +479,21 @@ function createStructure()
 					if not SettingsOpen then
 						SettingsOpen = true
 						contents(true)
-
+						
+						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsHolder, TweenInfo.new(0.4), {['Rotation'] = 90}):Play()
+						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsFrame.UIScale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+						
 						button_place_holder.AutomaticSize = Enum.AutomaticSize.Y
 						settings_frame.Visible = true
 						settings_frame.AutomaticSize = Enum.AutomaticSize.Y
 					else
-						contents(false)
 						SettingsOpen = false
+						
+						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsHolder, TweenInfo.new(0.4), {['Rotation'] = 90}):Play()
+						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsFrame.UIScale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+						task.wait(0.4)
+						
+						contents(false)
 						settings_frame.Visible = false
 						settings_frame.AutomaticSize = Enum.AutomaticSize.None 
 						button_place_holder.AutomaticSize = Enum.AutomaticSize.None
