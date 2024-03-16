@@ -15,11 +15,28 @@ function createStructure()
 	array_list.BackgroundTransparency = 1
 	array_list.BorderColor3 = Color3.new(0, 0, 0)
 	array_list.BorderSizePixel = 0
-	array_list.Position = UDim2.new(0, 1494, 0, 55)
+	array_list.Position = UDim2.new(0, 1476, 0, 56)
 	array_list.Size = UDim2.new(0, 176, 0, 557)
 	array_list.Visible = true
 	array_list.Name = "ArrayList"
 	array_list.Parent = moonclient
+
+	local notification_list = Instance.new("Frame")
+	notification_list.BackgroundColor3 = Color3.new(1, 1, 1)
+	notification_list.BackgroundTransparency = 1
+	notification_list.BorderColor3 = Color3.new(0, 0, 0)
+	notification_list.BorderSizePixel = 0
+	notification_list.Position = UDim2.new(0, 1475, 0, 378)
+	notification_list.Size = UDim2.new(0, 293, 0, 348)
+	notification_list.Visible = true
+	notification_list.Name = "NotificationList"
+	notification_list.Parent = moonclient
+
+	local uilist_layout = Instance.new("UIListLayout")
+	uilist_layout.Padding = UDim.new(0, 10)
+	uilist_layout.SortOrder = Enum.SortOrder.LayoutOrder
+	uilist_layout.VerticalAlignment = Enum.VerticalAlignment.Bottom
+	uilist_layout.Parent = notification_list
 
 	local array_group = Instance.new("CanvasGroup")
 	array_group.AutomaticSize = Enum.AutomaticSize.Y
@@ -27,7 +44,7 @@ function createStructure()
 	array_group.BackgroundTransparency = 1
 	array_group.BorderColor3 = Color3.new(0, 0, 0)
 	array_group.BorderSizePixel = 0
-	array_group.Size = UDim2.new(0, 300, 0, 24)
+	array_group.Size = UDim2.new(0, 513, 0, 38)
 	array_group.Visible = true
 	array_group.Name = "ArrayGroup"
 	array_group.Parent = array_list
@@ -35,9 +52,6 @@ function createStructure()
 	local uicorner = Instance.new("UICorner")
 	uicorner.CornerRadius = UDim.new(0, 2)
 	uicorner.Parent = array_group
-
-	local uipadding_2 = Instance.new("UIPadding")
-	uipadding_2.Parent = array_group
 
 	local uilist_layout = Instance.new("UIListLayout")
 	uilist_layout.SortOrder = Enum.SortOrder.LayoutOrder
@@ -205,6 +219,101 @@ function createStructure()
 	end)
 
 	dragify(moon)
+	
+	function createNotification(Text, Time)
+
+		local notification = Instance.new("Frame")
+		notification.AnchorPoint = Vector2.new(0.5, 0.5)
+		notification.AutomaticSize = Enum.AutomaticSize.XY
+		notification.BackgroundColor3 = Color3.new(0.0784314, 0.0784314, 0.0784314)
+		notification.BackgroundTransparency = 0.20000000298023224
+		notification.BorderColor3 = Color3.new(0, 0, 0)
+		notification.BorderSizePixel = 0
+		notification.Position = UDim2.new(0, 1500, 0, 614)
+		notification.Size = UDim2.new(0, 319, 0, 52)
+		notification.Visible = true
+		notification.ZIndex = 7
+		notification.Name = "Notification"
+		notification.Parent = notification_list
+
+		local uicorner = Instance.new("UICorner")
+		uicorner.Parent = notification
+
+		local TimeSect = Instance.new("Frame")
+		TimeSect.AnchorPoint = Vector2.new(0.5, 0)
+		TimeSect.BackgroundColor3 = Color3.new(1, 1, 1)
+		TimeSect.BorderColor3 = Color3.new(0, 0, 0)
+		TimeSect.BorderSizePixel = 0
+		TimeSect.Position = UDim2.new(0, 176, 0, 42)
+		TimeSect.Size = UDim2.new(0, 247, 0, 1)
+		TimeSect.Visible = true
+		TimeSect.ZIndex = 7
+		TimeSect.Name = "Time"
+		TimeSect.Parent = notification
+
+		local uicorner_2 = Instance.new("UICorner")
+		uicorner_2.CornerRadius = UDim.new(1, 19)
+		uicorner_2.Parent = TimeSect
+
+		local inside_text = Instance.new("TextLabel")
+		inside_text.Font = Enum.Font.SourceSans
+		inside_text.Text = Text
+		inside_text.TextColor3 = Color3.new(1, 1, 1)
+		inside_text.TextSize = 20
+		inside_text.TextWrapped = true
+		inside_text.TextXAlignment = Enum.TextXAlignment.Left
+		inside_text.AutomaticSize = Enum.AutomaticSize.Y
+		inside_text.BackgroundColor3 = Color3.new(1, 1, 1)
+		inside_text.BackgroundTransparency = 1
+		inside_text.BorderColor3 = Color3.new(0, 0, 0)
+		inside_text.BorderSizePixel = 0
+		inside_text.Position = UDim2.new(0, 57, 0, 5)
+		inside_text.Size = UDim2.new(0, 248, 0, 46)
+		inside_text.Visible = true
+		inside_text.ZIndex = 7
+		inside_text.Name = "InsideText"
+		inside_text.Parent = notification
+
+		local uipadding = Instance.new("UIPadding")
+		uipadding.PaddingBottom = UDim.new(0, 13)
+		uipadding.Parent = inside_text
+
+		local icon = Instance.new("ImageLabel")
+		icon.Image = "rbxassetid://11401835376"
+		icon.BackgroundColor3 = Color3.new(1, 1, 1)
+		icon.BackgroundTransparency = 1
+		icon.BorderColor3 = Color3.new(0, 0, 0)
+		icon.BorderSizePixel = 0
+		icon.Position = UDim2.new(0, 10, 0, 13)
+		icon.Size = UDim2.new(0, 27, 0, 23)
+		icon.Visible = true
+		icon.ZIndex = 7
+		icon.Name = "Icon"
+		icon.Parent = notification
+
+		local uistroke = Instance.new("UIStroke")
+		uistroke.Color = Color3.new(0.635294, 0.635294, 0.635294)
+		uistroke.Parent = notification
+
+		local uiscalenotif = Instance.new("UIScale")
+		uiscalenotif.Scale = 0
+		uiscalenotif.Parent = notification
+
+		local uistroke = Instance.new("UIStroke")
+		uistroke.Color = Color3.new(0.635294, 0.635294, 0.635294)
+		uistroke.Parent = notification
+		
+		spawn(function()
+			game:GetService("TweenService"):Create(uiscalenotif, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+			TimeSect:TweenSize(UDim2.new{0, 0,0, 1}, "Out", "Sine", Time)
+			task.wait(Time)
+			game:GetService("TweenService"):Create(uiscalenotif, TweenInfo.new(0.4), {['Scale'] = 0}):Play()
+			task.wait(0.4)
+
+			notification:Destroy()
+		end)
+		
+	end
 
 	function createTab(tabName)
 
@@ -314,11 +423,11 @@ function createStructure()
 	end
 
 	function createScript(scriptName, scriptTab, callBack)
-		
+
 		callBack = callBack or function() end
 
 		if tabs:FindFirstChild(scriptTab) then
-			
+
 			local button_place_holder = Instance.new("Frame")
 			button_place_holder.Active = true
 			button_place_holder.BackgroundColor3 = Color3.new(0.458824, 0.498039, 0.909804)
@@ -331,13 +440,13 @@ function createStructure()
 			button_place_holder.ZIndex = 2
 			button_place_holder.Name = scriptName
 			button_place_holder.Parent = tabs:FindFirstChild(scriptTab).ScriptsGroup
-			
+
 			local button_actual = Instance.new("TextButton")
-			button_actual.Font = Enum.Font.Unknown
-			button_actual.Text = "Target Strafe"
+			button_actual.Font = Enum.Font.SourceSansBold
+			button_actual.FontFace.Weight = Enum.FontWeight.Bold
+			button_actual.Text = scriptName
 			button_actual.TextColor3 = Color3.new(0.443137, 0.439216, 0.45098)
 			button_actual.TextScaled = true
-			button_actual.TextSize = 25
 			button_actual.TextWrapped = true
 			button_actual.TextXAlignment = Enum.TextXAlignment.Left
 			button_actual.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -351,6 +460,8 @@ function createStructure()
 			button_actual.Name = "ButtonActual"
 			button_actual.Parent = button_place_holder
 			
+			print(button_actual.FontFace.Weight)
+
 			local settings_holder = Instance.new("ImageButton")
 			settings_holder.Image = "rbxassetid://14596383084"
 			settings_holder.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -377,7 +488,7 @@ function createStructure()
 			settings_frame.ZIndex = 7
 			settings_frame.Name = "SettingsFrame"
 			settings_frame.Parent = button_place_holder
-			
+
 			local uilist_layout_4 = Instance.new("UIListLayout")
 			uilist_layout_4.Padding = UDim.new(0, 12)
 			uilist_layout_4.SortOrder = Enum.SortOrder.LayoutOrder
@@ -388,7 +499,7 @@ function createStructure()
 			uipadding_5.PaddingLeft = UDim.new(0, 10)
 			uipadding_5.PaddingTop = UDim.new(0, 10)
 			uipadding_5.Parent = settings_frame
-			
+
 			local uiscale_2 = Instance.new("UIScale")
 			uiscale_2.Parent = settings_frame
 
@@ -404,32 +515,44 @@ function createStructure()
 						game:GetService("TweenService"):Create(button_actual, TweenInfo.new(0.4), {['TextColor3'] = Color3.fromRGB(223, 238, 255)}):Play()
 						pcall(callBack)
 
-						local array = Instance.new("TextLabel") -- creates an array for script
+						local array_single = Instance.new("CanvasGroup")
+						array_single.AutomaticSize = Enum.AutomaticSize.X
+						array_single.BackgroundColor3 = Color3.new(1, 1, 1)
+						array_single.BackgroundTransparency = 1
+						array_single.BorderColor3 = Color3.new(0, 0, 0)
+						array_single.BorderSizePixel = 0
+						array_single.Size = UDim2.new(0, 96, 0, 38)
+						array_single.Visible = true
+						array_single.Name = scriptName
+						array_single.Parent = array_group
+
+						local array = Instance.new("TextLabel")
 						array.Font = Enum.Font.Roboto
 						array.Text = scriptName
 						array.TextColor3 = Color3.new(1, 1, 1)
-						array.TextWrapped = true
 						array.TextSize = 30
+						array.TextWrapped = true
 						array.AutomaticSize = Enum.AutomaticSize.X
 						array.BackgroundColor3 = Color3.new(0.294118, 0.294118, 0.294118)
 						array.BorderColor3 = Color3.new(0, 0, 0)
 						array.BorderSizePixel = 0
-						array.Size = UDim2.new(0, 176, 0, 32)
+						array.Position = UDim2.new(0, 0, 0.0526315793, 0)
+						array.Size = UDim2.new(0, 93, 0, 36)
 						array.Visible = true
-						array.Name = scriptName
-						array.Parent = array_group
+						array.Name = "Array"
+						array.Parent = array_single
 
 						local uigradient = Instance.new("UIGradient")
 						uigradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.184314, 1)), ColorSequenceKeypoint.new(1, Color3.new(0, 0.6, 1))})
 						uigradient.Parent = array
-
+						
 						local uipadding = Instance.new("UIPadding")
 						uipadding.PaddingLeft = UDim.new(0, 5)
 						uipadding.PaddingRight = UDim.new(0, 5)
 						uipadding.Parent = array
 
 						local uicorner_2 = Instance.new("UICorner")
-						uicorner_2.CornerRadius = UDim.new(0, 2)
+						uicorner_2.CornerRadius = UDim.new(0, 5)
 						uicorner_2.Parent = array
 
 						spawn(function()
@@ -462,7 +585,6 @@ function createStructure()
 			local SettingsOpen = false
 			local OpenedDeb2 = false
 
-
 			local function contents(depend)
 				for i ,v in pairs(settings_frame:GetChildren()) do
 					if v:IsA("Frame") then
@@ -478,25 +600,25 @@ function createStructure()
 
 					if not SettingsOpen then
 						SettingsOpen = true
-						contents(true)
-						
-						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsHolder, TweenInfo.new(0.4), {['Rotation'] = 90}):Play()
-						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsFrame.UIScale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
-						
-						button_place_holder.AutomaticSize = Enum.AutomaticSize.Y
+						game:GetService("TweenService"):Create(uiscale_2, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+						game:GetService("TweenService"):Create(settings_holder, TweenInfo.new(0.4), {['Rotation'] = 90}):Play()
+
 						settings_frame.Visible = true
+
+						button_place_holder.AutomaticSize = Enum.AutomaticSize.Y
 						settings_frame.AutomaticSize = Enum.AutomaticSize.Y
+						contents(true)
 					else
 						SettingsOpen = false
-						
-						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsHolder, TweenInfo.new(0.4), {['Rotation'] = 90}):Play()
-						game:GetService("TweenService"):Create(script.Parent.Parent.SettingsFrame.UIScale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+						game:GetService("TweenService"):Create(settings_holder, TweenInfo.new(0.4), {['Rotation'] = 0}):Play()
+						game:GetService("TweenService"):Create(uiscale_2, TweenInfo.new(0.4), {['Scale'] = 0}):Play()
+
 						task.wait(0.4)
-						
+
 						contents(false)
-						settings_frame.Visible = false
-						settings_frame.AutomaticSize = Enum.AutomaticSize.None 
+						settings_frame.AutomaticSize = Enum.AutomaticSize.None
 						button_place_holder.AutomaticSize = Enum.AutomaticSize.None
+						settings_frame.Visible = false
 					end
 
 					task.wait(0.5)
@@ -509,9 +631,9 @@ function createStructure()
 	end
 
 	function createSettingToggle(settingName, settingPlace, settingSpecification, CallBack)
-		
+
 		CallBack = CallBack or function() end
-		
+
 		if tabs:FindFirstChild(settingPlace) then
 			local toggle_button_frame = Instance.new("Frame")
 			toggle_button_frame.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -649,16 +771,21 @@ function createStructure()
 			text_info_2.Parent = dropdown_button_frame
 
 			local inside_dropdown = Instance.new("Frame")
+			inside_dropdown.AnchorPoint = Vector2.new(0.5, 0)
 			inside_dropdown.BackgroundColor3 = Color3.new(1, 1, 1)
 			inside_dropdown.BackgroundTransparency = 1
 			inside_dropdown.BorderColor3 = Color3.new(0, 0, 0)
 			inside_dropdown.BorderSizePixel = 0
-			inside_dropdown.Position = UDim2.new(0, 0, 0, 25)
+			inside_dropdown.Position = UDim2.new(0, 40, 0, 25)
 			inside_dropdown.Size = UDim2.new(0, 78, 0, 17)
 			inside_dropdown.Visible = true
 			inside_dropdown.ZIndex = 6
 			inside_dropdown.Name = "InsideDropdown"
 			inside_dropdown.Parent = dropdown_button_frame
+			
+			local uiscale = Instance.new("UIScale")
+			uiscale.Scale = 1
+			uiscale.Parent = inside_dropdown
 
 			local uilist_layout_5 = Instance.new("UIListLayout")
 			uilist_layout_5.Padding = UDim.new(0, 5)
@@ -708,19 +835,23 @@ function createStructure()
 
 			button_hitbox_3.MouseButton1Down:Connect(function()
 
-				local ContentsSize = nil
-
 				if not Debounce then
 					Debounce = true
 
 					if not Open then
+						
 						Open = true
+						game:GetService("TweenService"):Create(uiscale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
+
 						contents(true)
 						inside_dropdown.AutomaticSize = Enum.AutomaticSize.Y
 						dropdown_button_frame.AutomaticSize = Enum.AutomaticSize.Y
 
 					else
 						Open = false
+						game:GetService("TweenService"):Create(uiscale, TweenInfo.new(0.4), {['Scale'] = 0}):Play()
+						task.wait(0.4)
+						contents(false)
 						inside_dropdown.AutomaticSize = Enum.AutomaticSize.None
 						dropdown_button_frame.AutomaticSize = Enum.AutomaticSize.None
 					end
