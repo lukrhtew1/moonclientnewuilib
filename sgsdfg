@@ -74,7 +74,7 @@ function createStructure()
 	uipadding_3.Parent = tabs
 
 	local uilist_layout_2 = Instance.new("UIListLayout")
-	uilist_layout_2.Padding = UDim.new(0, 35)
+	uilist_layout_2.Padding = UDim.new(0, 25)
 	uilist_layout_2.FillDirection = Enum.FillDirection.Horizontal
 	uilist_layout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	uilist_layout_2.Parent = tabs
@@ -219,7 +219,7 @@ function createStructure()
 	end)
 
 	dragify(moon)
-	
+
 	function createNotification(Text, Time)
 
 		local notification = Instance.new("Frame")
@@ -302,7 +302,7 @@ function createStructure()
 		local uistroke = Instance.new("UIStroke")
 		uistroke.Color = Color3.new(0.635294, 0.635294, 0.635294)
 		uistroke.Parent = notification
-		
+
 		spawn(function()
 			game:GetService("TweenService"):Create(uiscalenotif, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
 			TimeSect:TweenSize(UDim2.new{0, 0,0, 1}, "Out", "Sine", Time)
@@ -312,7 +312,7 @@ function createStructure()
 
 			notification:Destroy()
 		end)
-		
+
 	end
 
 	function createTab(tabName)
@@ -459,7 +459,7 @@ function createStructure()
 			button_actual.ZIndex = 6
 			button_actual.Name = "ButtonActual"
 			button_actual.Parent = button_place_holder
-			
+
 			print(button_actual.FontFace.Weight)
 
 			local settings_holder = Instance.new("ImageButton")
@@ -545,7 +545,7 @@ function createStructure()
 						local uigradient = Instance.new("UIGradient")
 						uigradient.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0, 0.184314, 1)), ColorSequenceKeypoint.new(1, Color3.new(0, 0.6, 1))})
 						uigradient.Parent = array
-						
+
 						local uipadding = Instance.new("UIPadding")
 						uipadding.PaddingLeft = UDim.new(0, 5)
 						uipadding.PaddingRight = UDim.new(0, 5)
@@ -782,7 +782,7 @@ function createStructure()
 			inside_dropdown.ZIndex = 6
 			inside_dropdown.Name = "InsideDropdown"
 			inside_dropdown.Parent = dropdown_button_frame
-			
+
 			local uiscale = Instance.new("UIScale")
 			uiscale.Scale = 1
 			uiscale.Parent = inside_dropdown
@@ -839,7 +839,7 @@ function createStructure()
 					Debounce = true
 
 					if not Open then
-						
+
 						Open = true
 						game:GetService("TweenService"):Create(uiscale, TweenInfo.new(0.4), {['Scale'] = 1}):Play()
 
