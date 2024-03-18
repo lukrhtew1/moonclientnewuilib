@@ -62,7 +62,7 @@ function createStructure()
 	tabs.BackgroundTransparency = 1
 	tabs.BorderColor3 = Color3.new(0, 0, 0)
 	tabs.BorderSizePixel = 0
-	tabs.Position = UDim2.new(0.1, 0, 0.3, 0)
+	tabs.Position = UDim2.new(0.2, 0, 0, 0)
 	tabs.Size = UDim2.new(0, 768, 0, 192)
 	tabs.Visible = true
 	tabs.Name = "Tabs"
@@ -74,7 +74,7 @@ function createStructure()
 	uipadding_3.Parent = tabs
 
 	local uilist_layout_2 = Instance.new("UIListLayout")
-	uilist_layout_2.Padding = UDim.new(0, 15)
+	uilist_layout_2.Padding = UDim.new(0, 10)
 	uilist_layout_2.FillDirection = Enum.FillDirection.Horizontal
 	uilist_layout_2.SortOrder = Enum.SortOrder.LayoutOrder
 	uilist_layout_2.Parent = tabs
