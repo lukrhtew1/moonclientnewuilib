@@ -1,3 +1,4 @@
+
 local UserInputService = game:GetService("UserInputService")
 
 function createStructure()
@@ -63,11 +64,11 @@ function createStructure()
 	tabs.AnchorPoint = Vector2.new(0.5, 0.5)
 	tabs.BorderColor3 = Color3.new(0, 0, 0)
 	tabs.BorderSizePixel = 0
-	tabs.Position = UDim2.new(0.45, 0, 0.34, 0)
+	tabs.Position = UDim2.new(0.2, 30, 0.1, 0)
 	tabs.Size = UDim2.new(0, 768, 0, 192)
 	tabs.Visible = false
 	tabs.Name = "Tabs"
-	tabs.ZIndex = 9999
+	tabs.ZIndex = 999
 	tabs.Parent = moonclient
 
 	local uipadding_3 = Instance.new("UIPadding")
@@ -82,7 +83,7 @@ function createStructure()
 	uilist_layout_2.Parent = tabs
 
 	local uiScaleTabs = Instance.new("UIScale")
-	uiScaleTabs.Scale = 0
+	uiScaleTabs.Scale = 1.1
 	uiScaleTabs.Parent = tabs
 
 	local moon = Instance.new("TextLabel")
@@ -200,34 +201,12 @@ function createStructure()
 	-- enable / disable ui --
 
 	local moonEnabled = false
-	local moonEnbDeb = false
 
 	local function disableTabs(enquiry)
 		if enquiry == false then
-
-			local Blur = Instance.new("BlurEffect", game.Lighting)
-			Blur.Size = 0
-			Blur.Name = "MOONCLIENTBLUR"
-
-			game:GetService("TweenService"):Create(Blur, TweenInfo.new(1), {['Size'] = 15}):Play()
-
 			tabs.Visible = true
-			game:GetService("TweenService"):Create(uiScaleTabs, TweenInfo.new(0.4), {['Scale'] = 1.1}):Play()
 		else
-
-			game:GetService("TweenService"):Create(uiScaleTabs, TweenInfo.new(0.4), {['Scale'] = 0}):Play()
-			task.wait(0.2)
-
 			tabs.Visible = false
-
-			spawn(function()
-				if game.Lighting:FindFirstChild("MOONCLIENTBLUR") then
-					local Blur = game.Lighting:FindFirstChild("MOONCLIENTBLUR")
-					game:GetService("TweenService"):Create(Blur, TweenInfo.new(1), {['Size'] = 0}):Play()
-					task.wait(1)
-					Blur:Destroy()
-				end
-			end)
 		end
 	end
 
@@ -236,19 +215,12 @@ function createStructure()
 		if Chatting then return end -- if player is typing in chat this function will not run
 
 		if input.KeyCode == Enum.KeyCode.RightAlt then -- if player pressed C then this function will run
-			if not moonEnbDeb then
-				moonEnbDeb = true
-
-				if not moonEnabled then
-					disableTabs(true)
-					moonEnabled = true
-				else
-					disableTabs(false)
-					moonEnabled = false
-				end
-
-				task.wait(0.6)
-				moonEnbDeb = false
+			if not moonEnabled then
+				disableTabs(true)
+				moonEnabled = true
+			else
+				disableTabs(false)
+				moonEnabled = false
 			end
 		end
 	end)
