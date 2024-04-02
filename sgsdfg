@@ -68,7 +68,6 @@ function createStructure()
 	tabs.Size = UDim2.new(0, 768, 0, 192)
 	tabs.Visible = false
 	tabs.Name = "Tabs"
-	tabs.ZIndex = 999
 	tabs.Parent = moonclient
 
 	local uipadding_3 = Instance.new("UIPadding")
