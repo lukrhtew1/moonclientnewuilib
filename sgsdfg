@@ -9,7 +9,7 @@ function createStructure()
 	moonclient.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	moonclient.Name = "moonclient"
 	moonclient.ResetOnSpawn = false
-	moonclient.Parent = game.CoreGui
+	moonclient.Parent = game.Players.,LocalPlayer.PlayerGui
 
 	local array_list = Instance.new("Frame")
 	array_list.BackgroundColor3 = Color3.new(1, 1, 1)
