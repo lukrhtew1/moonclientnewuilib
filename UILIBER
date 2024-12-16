@@ -10,6 +10,7 @@ function createStructure()
 	moonclient.Name = "moonclient"
 	moonclient.ResetOnSpawn = false
 	moonclient.Parent = game.CoreGui
+	print("we are in core ")
 
 	local array_list = Instance.new("Frame")
 	array_list.BackgroundColor3 = Color3.new(1, 1, 1)
